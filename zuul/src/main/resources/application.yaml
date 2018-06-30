@@ -1,0 +1,19 @@
+server:
+  port: 8089
+zuul:
+  routes:
+      testService:
+        path: /test/**
+        serviceId: testDemo
+        stripPrefix: false
+
+testDemo.ribbon.listOfServers: http://localhost:1050/test
+
+hystrix :
+  command :
+    default :
+      requestLog:
+        enabled: false
+      requestCache:
+        enabled: false
+ribbon.eureka.enabled: false
